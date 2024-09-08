@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta que não quer calar</title>
+    <link rel="stylesheet" href="pergunta.css">
+</head>
+<body>
+    <div class="caixaPergunta">
+        <span>Mozinho que eu mais amo</span>
+
+        <img src="imgs/ftPergunta.png" alt="">
+
+        <span>Me libera a traseira?</span>
+
+        <div class="botoes">
+            <button id="yes-button">SIM</button>
+            <button id="no-button">NÃO</button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no-button');
+        const yesButton = document.getElementById('yes-button');
+
+        noButton.addEventListener('click', () => {
+            const maxX = window.innerWidth - noButton.offsetWidth;
+            const maxY = window.innerHeight - noButton.offsetHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noButton.style.position = 'absolute'; // Garante que o botão "Não" possa se mover
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+
+        yesButton.addEventListener('click', () => {
+            window.location.href = 'https://www.youtube.com/watch?v=0mJMW2CzTiA&ab_channel=JohnHerbert';
+        });
+
+    </script>
+</body>
+</html>

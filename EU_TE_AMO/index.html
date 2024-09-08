@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Para minha gatinha</title>
+</head>
+
+<body>
+    <div class="mensagemInicial">
+        <span>
+            Vidoca, surpresinha de 90 dias, mais uma <span id="highlight">gayzisse</span> de amor...
+        </span>
+    </div>
+
+    <div class="heart" style="top: 5%; left: 10%;"></div>
+    <div class="heart" style="top: 15%; left: 80%;"></div>
+    <div class="heart" style="top: 80%; left: 25%;"></div>
+    <div class="heart" style="top: 50%; left: 70%;"></div>
+    <div class="heart" style="top: 10%; left: 40%;"></div>
+    <div class="heart" style="top: 83%; left: 90%;"></div>
+    <div class="heart" style="top: 25%; left: 55%;"></div>
+    <div class="heart" style="top: 45%; left: 10%;"></div>
+    <div class="heart" style="top: 10%; left: 65%;"></div>
+    <div class="heart" style="top: 20%; left: 90%;"></div>
+    <div class="heart" style="top: 55%; left: 30%;"></div>
+    <div class="heart" style="top: 70%; left: 80%;"></div>
+    <div class="heart" style="top: 30%; left: 20%;"></div>
+    <div class="heart" style="top: 80%; left: 50%;"></div>
+    <div class="heart" style="top: 90%; left: 5%;"></div>
+    <div class="heart" style="top: 40%; left: 85%;"></div>
+
+    <div class="alinhamentoCard">
+        <span>Joguinho da Memória</span>
+        <div class="game-board" id="gameBoard">
+            <!-- Cartas vão aqui -->
+        </div>
+    </div>
+
+    <div id="winModal" class="modal">
+        <div class="modal-content">
+          <h2>Parabéns! Minha Gostosaa</h2>
+          <button id="restartBtn">Voltar</button>
+        </div>
+    </div>
+
+
+    <div class="pergunta">
+        <button class="alert-button" onclick="redirectToPage()">!!PERGUNTA QUE NÃO QUER CALAR!!</button>
+    </div>
+
+
+    <script>
+        function redirectToPage() {
+            window.location.href = 'pergunta.html';
+        }
+    </script>
+      
+
+    <script src="script.js"></script>
+</body>
+
+</html>

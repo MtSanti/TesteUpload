@@ -1,0 +1,263 @@
+/* Estilos do corpo */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(imgs/fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Mensagem inicial de boas-vindas */
+.mensagemInicial {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mensagemInicial span {
+    display: inline-block;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.732);
+    z-index: 100;
+}
+
+#highlight {
+    color: #ff4500;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Aparecer o texto extra "Eu te amoo!" */
+.mensagemInicial::after {
+    content: "Eu te amoo! 💖✨";
+    display: block;
+    font-size: 4rem;
+    color: #f9f6f8;
+    margin-top: 20px;
+    font-family: 'Dancing Script', cursive;
+    opacity: 0;
+    animation: showText 4s forwards;
+    z-index: 100;
+}
+
+@keyframes showText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Coração animado */
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ff69b4;
+    transform: rotate(45deg);
+    animation: pulse 4s infinite ease-in-out;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    left: -25px;
+    top: 0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9) rotate(45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(45deg);
+    }
+    100% {
+        transform: scale(0.9) rotate(45deg);
+    }
+}
+
+.game-board {
+    width: 60vw; /* Largura da área de 70% da largura da viewport */
+    height: 85vh; /* Altura da área de 70% da altura da viewport */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 colunas de tamanho flexível */
+    grid-gap: 20px; /* Espaço entre as cartas */
+}
+
+.card {
+    background-color: #333;
+    cursor: pointer;
+    position: relative;
+    perspective: 1000px;
+    width: 90%; /* Cada carta ocupa o máximo de largura permitido pela célula */
+    height: 100%; /* Cada carta ocupa o máximo de altura permitido pela célula */
+}
+
+.card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-radius: 8px; /* Opcional: bordas arredondadas */
+}
+
+
+.card-back {
+    background-color: #4CAF50;
+    transform: rotateY(180deg);
+}
+
+.alinhamentoCard{
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.alinhamentoCard span{
+    text-align: center;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço da carta sem distorção */
+}
+
+/* Modal */
+.modal {
+    display: none; /* Inicialmente, escondido */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin: 0 0 20px;
+}
+
+.modal-content button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+
+.pergunta{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-button {
+    background-color: #fd8f00; /* Cor de fundo vermelha */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    padding: 15px 25px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão ao passar sobre o botão */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    outline: none; /* Remove a borda ao clicar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ao redor do botão */
+    animation: pulse 1.5s infinite; /* Animação de pulsação */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.alert-button:hover {
+    background-color: #ffd000; /* Cor de fundo ao passar o mouse */
+}
